@@ -1,0 +1,676 @@
+/*全体　共通
+最初から設定してあるので特に変更
+しなくても大丈夫です♪
+-----------------*/
+body {
+	font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
+	line-height: 1.75;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+/*　パディングをサイズ内側にする処理　*/
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*ーーーーーーーーーーー*/
+/*この下から記述*/
+/*ーーーーーーーーーーー*/
+
+
+
+
+
+/*どの部分のcssに対して
+命令をしているのかコメントを
+記載しよう！
+---------------------*/
+
+
+
+/*チーズアカデミー
+---------------------*/
+
+html {
+	font-size: 62.5%;
+}
+
+
+.titlecheeze {
+	position: relative;
+
+
+}
+
+.titlecheeze img {
+	width: 100%;
+	height: 600px;
+
+}
+
+
+
+.maintitle {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	width: 100%;
+	padding: 0;
+	line-height: 40px;
+	text-align: center;
+	text-shadow: 2px 3px 4px rgb(11, 14, 15);
+
+}
+
+.title {
+	font-size: 4.8rem;
+
+}
+
+.subtitle {
+	font-size: 3.6rem;
+	font-weight: bold;
+}
+
+
+
+/*navの中身
+---------------------*/
+
+
+.header-wrapper {
+	margin: auto;
+
+	padding: 10px 60px;
+	max-width: 100%;
+	height: 80px;
+
+}
+
+.nav-list {
+	display: flex;
+	margin: 10px 0;
+	font-size: 2.1rem;
+
+
+
+}
+
+.page-header {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+
+
+
+.nav-item1 {
+	width: 100%;
+	margin: auto;
+	padding: 0 0 0 20px;
+
+}
+
+.nav-item1 img {
+	height: 60px;
+
+}
+
+.nav-item2 {
+	display: block;
+	margin: 0 0 0 48px;
+	background-color: #808000;
+	width: 120px;
+	text-align: center;
+	border-radius: 50%;
+}
+
+.nav-item2:hover {
+	background-color: #8080008c;
+}
+
+
+
+/*infoエリアをはじめは非表示*/
+#info {
+	display: none;
+}
+
+
+/*モーダルの横幅を変更したい場合*/
+.modaal-container {
+	max-width: 100%;
+
+}
+
+/*モーダルのボタンの色を変更したい場合*/
+.modaal-close:after,
+.modaal-close:before {
+	background: #ccc;
+}
+
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before {
+	background: #666;
+}
+
+/*アバウトの内容
+---------------------*/
+
+
+.bgm {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.profile {
+	padding: 120px 0 0;
+}
+
+.profile-wrapper {
+	width: 100%;
+	margin: auto;
+
+}
+
+.profile__title {
+	margin: 0 0 24px;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #808000;
+}
+
+.profile__1 {
+	margin: 0 0 64px;
+}
+
+.profile__2 {
+	margin: 40px 0;
+}
+
+.profile__5 {
+	padding: 40px 0;
+}
+
+.profile__7 {
+	margin: 0 0 80px;
+}
+
+.text-center {
+	text-align: center;
+
+
+}
+
+
+
+
+
+/*流れる画像*/
+
+
+@keyframes loop-slide {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+
+
+.wave {
+	display: flex;
+	overflow: hidden;
+
+}
+
+.slide-list {
+	display: flex;
+	animation: loop-slide 20s infinite linear 0.5s both;
+}
+
+.slide-item img {
+	width: 100%;
+	height: 150px;
+}
+
+
+
+
+
+
+
+
+.slide-item {
+	width: calc(100vw /6);
+}
+
+/*course*/
+
+
+
+
+.explanation-title {
+	padding: 64px 0;
+	width: 100%;
+	margin: auto;
+}
+
+.ex__1 {
+	margin: 0 0 24px;
+	font-weight: bold;
+	color: #808000;
+}
+
+
+
+.school {
+	width: 100%;
+	margin: auto;
+
+}
+
+
+
+.course-text {
+
+	padding: 0 0 0 48px;
+	vertical-align: middle;
+	background-color: #fafafa;
+
+}
+
+.sougen-image,
+course-text {
+	width: 50%;
+
+
+}
+
+.eraso-image,
+course-text2 {
+	width: 50%;
+
+
+}
+
+
+
+.chee-image,
+course-text {
+	width: 50%;
+
+}
+
+.course-text2 {
+	background-color: #fafafa;
+	vertical-align: middle;
+
+
+
+}
+
+.course-title2 {
+	font-size: 24px;
+	color: #222222;
+	margin: 0 0 40px;
+	font-weight: bold;
+
+}
+
+.course-text3 {
+	margin-left: 24%;
+	margin-right: 48px;
+}
+
+.course-title {
+	font-size: 24px;
+	font-weight: bold;
+	color: #222222;
+	margin: 0 0 40px;
+}
+
+/*  */
+
+.sougen img {
+	width: 100%;
+	height: 500px;
+}
+
+.teacher img {
+	width: 100%;
+	height: 500px;
+}
+
+
+
+
+.research img {
+	width: 100%;
+	height: 500px;
+}
+
+
+
+/*ニュース
+---------------------*/
+
+.news-wrapper {
+	max-width: 960px;
+	margin: auto;
+
+}
+
+.news-titles {
+	max-width: 560px;
+	margin: auto;
+
+}
+
+.news-title {
+	padding: 64px 0 0;
+	margin: 0 0 24px;
+	font-size: 2.4rem;
+	font-weight: bold;
+	color: #808000;
+}
+
+.news-title2 {
+	margin: 0 0 64px;
+}
+
+.news__list {
+
+	display: flex;
+}
+
+.news__item {
+	max-width: 33.333%;
+	margin: auto;
+
+	font-size: 1.4rem;
+	white-space: nowrap;
+
+}
+
+
+
+
+
+.eyecatchs {
+	width: 100%;
+	/*ボックスの幅*/
+	height: 200px;
+	/*ボックスの高さ*/
+	overflow: hidden;
+	/*画像拡大時にはみ出た部分を隠す*/
+
+}
+
+.eyecatchs img {
+
+	width: 100%;
+	/*画像の幅*/
+	height: 200px;
+	/*画像の高さ*/
+	transition-duration: 0.5s;
+	/*変化の時間*/
+}
+
+.news__item:hover.news__item img {
+	transform: scale(1.2, 1.2);
+	/*画像の拡大*/
+	cursor: pointer;
+	/*カーソルをポインターにする*/
+}
+
+
+
+
+
+.news-contents {
+	line-height: 2;
+}
+
+.btn1 {
+	padding: 56px 0 48px 0;
+}
+
+.btn {
+	display: block;
+	width: 300px;
+	margin: auto;
+	padding: 20px 0 19px 0;
+	background-color: #808000;
+	color: white;
+	font-size: 2.1rem;
+
+}
+
+
+
+.news-topic {
+	padding: 32px 0 0;
+	margin: 0 0 24px;
+
+}
+
+/*アクセス*/
+
+.access-wrapper {
+	max-width: 960px;
+	margin: auto;
+	padding: 64px 0;
+	white-space: nowrap;
+}
+
+.map-title {
+	font-size: 2.4rem;
+	margin: 0 0 24px;
+	font-weight: bold;
+	color: #808000;
+}
+
+
+.maps {
+	background-color: #fafafa;
+}
+
+.map-info {
+	width: 100%;
+	margin: auto;
+	padding: 64px 0 56px 0
+}
+
+.right-info {
+	padding: 0 0 24px 48px;
+}
+
+/*googleマップのサイズ*/
+.gmap-wrap {
+	position: relative;
+	height: 0;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	overflow: hidden;
+	display: block;
+
+}
+
+.gmap-wrap iframe,
+.gmap-wrap object,
+.gmap-wrap embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+/*コンタクト
+---------------------*/
+.form-wrapper {
+	width: 560px;
+	margin: auto;
+}
+
+.form-title {
+	padding: 64px 0;
+}
+
+.form-title1 {
+	padding: 0 0 24px 0;
+	font-weight: bold;
+	font-size: 2.4rem;
+	color: #808000;
+}
+
+
+.form-main2 {
+	margin: 0 0 32px;
+}
+
+.form-main4 {
+	margin: 0 0 80px;
+}
+
+.form-inner {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 0 16px;
+}
+
+.form {
+	width: 112px;
+	margin: 0 120px 0 0;
+	text-align: left;
+	padding: 8px 0 0 0;
+}
+
+
+
+.form.form-radio {
+	padding: 0;
+}
+
+
+.form2 {
+	width: 328px;
+	margin: 0 0 24px;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.form3 {
+	width: 328px;
+	margin: 0 0 40px;
+}
+
+.radios {
+	margin: 0 0 24px;
+}
+
+.form-label {
+
+	font-size: 14px;
+}
+
+.form-parts {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
+	font-size: 2.8rem;
+	border: solid 1px #bfbfbf;
+
+}
+
+
+
+input[type*="radio"] {
+	margin: 0 40px 0 0;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 24px;
+	height: 24px;
+	border-radius: 15%;
+
+	background-color: #f0ebe5;
+}
+
+input[type*="radio"]:checked {
+	background-color: #74992e;
+}
+
+.btn2 {
+	display: block;
+	width: 298px;
+	margin: auto;
+	padding: 18px 0 18px 0;
+	background-color: #808000;
+	color: white;
+	font-size: 1.8rem;
+}
+
+.form-btn {
+	margin: 0 0 120px;
+}
+
+/*フッター
+---------------------*/
+.copyrights {
+	max-width: 100%;
+	margin: auto;
+	padding: 32px 0;
+	color: white;
+	text-align: center;
+	font-size: 18px;
+	background: #707070;
+}
+
+/*トップへ戻る
+---------------------*/
+
+.pagetop {
+	height: 50px;
+	width: 50px;
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	background: #fff;
+	border: solid 2px #000;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+
+.pagetop__arrow {
+	height: 10px;
+	width: 10px;
+	border-top: 3px solid #000;
+	border-right: 3px solid #000;
+	transform: translateY(20%) rotate(-45deg);
+}
