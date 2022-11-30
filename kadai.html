@@ -63,7 +63,7 @@
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyA6mukSgcgyyswpBhGsL0baeEW9g83Teic",
+            apiKey: "",
             authDomain: "kadaichat-uy03.firebaseapp.com",
             projectId: "kadaichat-uy03",
             storageBucket: "kadaichat-uy03.appspot.com",
@@ -74,7 +74,7 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-
+// 記事の内容をfirebaseに保存
         $('#send').on('click', function () {
             const postData = {
                 headline: $("#headline").val(),

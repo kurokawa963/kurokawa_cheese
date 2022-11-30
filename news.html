@@ -109,7 +109,7 @@
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyA6mukSgcgyyswpBhGsL0baeEW9g83Teic",
+            apiKey: "",
             authDomain: "kadaichat-uy03.firebaseapp.com",
             projectId: "kadaichat-uy03",
             storageBucket: "kadaichat-uy03.appspot.com",
@@ -123,13 +123,14 @@
 
         const q = query(collection(db, "news"), orderBy("time", "desc"));
 
+        // 記事をfirebaseから取得
         onSnapshot(q, (querySnapshot) => {
 
             const documents = [];
             querySnapshot.docs.forEach(function (doc) {
                 const document = {
-                    id: doc.id,
-                    data: doc.data(),
+                    id: doc.id,　//idを取得
+                    data: doc.data(),　//内容を取得
                 };
                 documents.push(document);
             });
