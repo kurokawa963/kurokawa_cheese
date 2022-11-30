@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="kadai.css">
+    <title>記者になろう</title>
+</head>
+<form>
+    <fieldset>
+        <legend>記事の内容</legend>
+        <div>
+            記事タイトル:
+            <input type="headline" id="headline">
+        </div>
+        <div>
+            小見出し１: <textarea name="" type="body1" id="body1"></textarea>
+        </div>
+        <div>
+            小見出し２: <textarea name="" type="body2" id="body2"></textarea>
+        </div>
+        <div>
+            まとめ: <textarea name="" type="conclusion" id="conclusion"></textarea>
+        </div>
+        <div>
+            <button type="button" id="send">完了</button>
+        </div>
+    </fieldset>
+</form>
+
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 日時をいい感じの形式にする関数
+        function convertTimestampToDatetime(timestamp) {
+            const _d = timestamp ? new Date(timestamp * 1000) : new Date();
+            const Y = _d.getFullYear();
+            const m = (_d.getMonth() + 1).toString().padStart(2, '0');
+            const d = _d.getDate().toString().padStart(2, '0');
+            const H = _d.getHours().toString().padStart(2, '0');
+            const i = _d.getMinutes().toString().padStart(2, '0');
+            const s = _d.getSeconds().toString().padStart(2, '0');
+            return `${Y}/${m}/${d} ${H}:${i}:${s}`;
+        }
+    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import {
+            getFirestore,
+            collection,
+            addDoc,
+            serverTimestamp,
+            query,
+            orderBy,
+            onSnapshot,
+        } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA6mukSgcgyyswpBhGsL0baeEW9g83Teic",
+            authDomain: "kadaichat-uy03.firebaseapp.com",
+            projectId: "kadaichat-uy03",
+            storageBucket: "kadaichat-uy03.appspot.com",
+            messagingSenderId: "5736328748",
+            appId: "1:5736328748:web:f47551951d9eee3870ab89"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        $('#send').on('click', function () {
+            const postData = {
+                headline: $("#headline").val(),
+                text1: $("#body1").val(),
+                text2: $("#body2").val(),
+                text3: $("#conclusion").val(),
+                time: serverTimestamp(),
+            };
+            addDoc(collection(db, "news"), postData);
+            $("#headline").val("");
+            $("#body1").val("");
+            $("#body2").val(""),
+                $("#conclusion").val("")
+        })
+
+        const q = query(collection(db, "news"), orderBy("time", "desc"));
+
+        onSnapshot(q, (querySnapshot) => {
+
+            // onSnapshot(collection(db, "chat"), (querySnapshot) => {
+
+
+            const documents = [];
+            querySnapshot.docs.forEach(function (doc) {
+                const document = {
+                    id: doc.id,
+                    data: doc.data(),
+                };
+                documents.push(document);
+            });
+
+            console.log(documents);
+
+            const htmlElements = [];
+            documents.forEach(function (document) {
+                htmlElements.push(`
+    <li id="${document.id}">
+      <p>${document.data.name} at ${convertTimestampToDatetime(document.data.time.seconds)}</p>
+      <p>${document.data.text}</p>
+    </li>
+  `);
+            });
+
+            $("#output").html(htmlElements);
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

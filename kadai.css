@@ -1,0 +1,12 @@
+form{
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+}
+
+textarea {
+    height: 200px;
+    width: 100%;
+    font-size: 20px;
+}
