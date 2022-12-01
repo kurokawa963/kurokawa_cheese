@@ -25,7 +25,19 @@
             まとめ: <textarea name="" type="conclusion" id="conclusion"></textarea>
         </div>
         <div>
-            <button type="button" id="send">完了</button>
+            記事タイトル文字色: <input type="color" id="color"></input>
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <button type="button" id="send">完了</button>
+                </li>
+                <li>
+                    <a href="news.html">
+                        <button type="button" id="back">NEWSへ</button>
+                    </a>
+                </li>
+            </ul>
         </div>
     </fieldset>
 </form>
@@ -74,7 +86,7 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-// 記事の内容をfirebaseに保存
+        // 記事の内容をfirebaseに保存
         $('#send').on('click', function () {
             const postData = {
                 headline: $("#headline").val(),
@@ -82,12 +94,14 @@
                 text2: $("#body2").val(),
                 text3: $("#conclusion").val(),
                 time: serverTimestamp(),
+                moji: $("#color").val()
             };
             addDoc(collection(db, "news"), postData);
             $("#headline").val("");
             $("#body1").val("");
             $("#body2").val(""),
-                $("#conclusion").val("")
+                $("#conclusion").val(""),
+                $("#color").val("")
         })
 
         const q = query(collection(db, "news"), orderBy("time", "desc"));

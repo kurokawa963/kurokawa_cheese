@@ -144,8 +144,8 @@
                 <div>
                 <ul class="news">
                     <li class="news-script">
-                        <h1 class="news-title" id="">${document.data.headline}
-                        </h1>
+                        <h1 class="news-title" id="""><font color="${document.data.moji}">${document.data.headline}
+                        </font></h1>
                         <div>
                             <p class="news-date" id="">${convertTimestampToDatetime(document.data.time)}</p>
 
@@ -175,6 +175,8 @@
             });
 
             $("#output").html(htmlElements);
+           
+
 
         });
 
